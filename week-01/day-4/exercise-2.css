@@ -1,0 +1,31 @@
+body {
+    border: 10px solid;
+    border-color: #4285f4;
+    width: 20em;
+    
+}
+
+header {
+    background-color: #e67676;
+}
+
+article {
+    background-color: #f2f062;
+}
+
+div {
+    background-color: #a9e6e6;
+}
+
+footer {
+    background-color: #7692e4;
+}
+
+header, article, div, footer {
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 35px;
+    display: block;
+    width: 320px;
+}
