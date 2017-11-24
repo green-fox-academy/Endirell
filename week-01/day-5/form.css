@@ -28,13 +28,37 @@ article {
     height: 500px;
 }
 
+div {
+    display: inline-block;
+
+}
+
+
 .leftbox {
     border: 5px solid;
     border-color: black;
     box-sizing: border-box;
+    width: 20px;
+    height: 20px;
     padding: 10px;
-    margin: 0 auto;
+}
 
+.rightbox {
+    border: 5px solid;
+    border-color: black;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+}
+
+.bottombox {
+    border: 5px solid;
+    border-color: black;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
 }
 
 .right {
