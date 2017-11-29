@@ -19,9 +19,14 @@ namespace TodoPrint
             //  - Download games
             //      - Diablo
 
-            
+            StringBuilder todo = new StringBuilder(todoText);
+            todo.Insert(0, " My todo:\n");
+            todo.Append(" - Download games\n");
+            todo.Append("\t - Diablo");
 
-            Console.WriteLine(todoText);
+
+            Console.WriteLine(todo);
+            Console.ReadLine();
         }
     }
 }
