@@ -172,7 +172,7 @@ namespace GreenFox
 
             Final:
             Console.Clear();
-            //exit program somehow!!!
+            
 
         }
     }
