@@ -11,6 +11,31 @@ namespace GreenFox
             //double massInKg = 81.2;
             //double heightInM = 1.78;
 
+            Start:
+
+            double masskg = 81.2;
+            double heightm = 1.78;
+
+            Console.WriteLine("Body mass index calulator\n" + "\nMass:" + masskg + "kg");
+            Console.WriteLine("\nHeight:" + heightm + "m");
+
+            double bmioriginal = (masskg / Math.Pow(heightm, 2));
+
+            Console.WriteLine("\nBMI: " + bmioriginal + "\n");
+                        
+            string secret = Console.ReadLine();
+            string doom = "iddqd";            
+
+            if (secret.Equals(doom))
+            {                
+                goto DOOM;
+            }                    
+
+            goto Final;
+
+            DOOM:
+
+            Console.Clear();
             Console.WriteLine("BMI Calculator for adults\n");
 
             Mass:                       
@@ -40,7 +65,7 @@ namespace GreenFox
             Console.WriteLine("\nYour height in Meters:");
             string M = Console.ReadLine();
             double f;
-            if (!Double.TryParse(Kg, out f))
+            if (!Double.TryParse(M, out f))
             {
                 Console.WriteLine("\nWrong input! Type in numbers\n");
 
@@ -139,6 +164,7 @@ namespace GreenFox
             string exiter2 = "y";
             string redo1 = "R";
             string redo2 = "r";
+            string startagain = "idkfa";
 
             if (exit.Equals(exiter1))
             {
@@ -162,6 +188,12 @@ namespace GreenFox
             {
                 Console.Clear();
                 goto Mass;
+            }
+
+            if (exit.Equals(startagain))
+            {
+                Console.Clear();
+                goto Start;
             }
 
             else
