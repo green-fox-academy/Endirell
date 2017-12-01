@@ -24,7 +24,10 @@ namespace Anagram
 
             var result = anagram1.Except(anagram2);
 
-            if (result.Count() == 0)
+            bool success = true;
+            success = (result.Count() == 0);
+
+            if (success)
             {
                 Console.WriteLine("\nThese two words ARE anagrams");                
             }
