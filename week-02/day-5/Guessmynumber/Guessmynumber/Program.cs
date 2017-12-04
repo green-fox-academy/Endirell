@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Guessmynumber
 {
@@ -28,76 +24,42 @@ namespace Guessmynumber
             Console.Clear();
             Console.WriteLine("Guess a number from " + range1s + " to " + range2s + ". You have " + life + " life point");
 
-            
-            Start:
+           
+            for (int i = 0; i < life; i++)
+            {     
+                          
+                string guessstr = Console.ReadLine();
+                int guess = Convert.ToInt32(guessstr);
 
-            
+                if (guess == number)
+                {
+                    Console.WriteLine("You won!");
 
-            if (life == 0)
-            {
-                goto Lose;
+                }
+
+                if (i < life - 1 && guess != number)
+                {
+                    if (guess > number)
+                    {
+                        Console.WriteLine("Too high, you have " + (life - (i + 1)) + " life point");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Too low, you have " + (life - (i + 1)) + " life point");
+                    }
+                }
+                if (i == life - 1)
+                {
+                    Console.WriteLine("Game over");
+                }
+                
+
+
+
+
             }
 
-            string guessstr = Console.ReadLine();
-                    
-
-            int d;
-            if (!int.TryParse(guessstr, out d))
-            {
-                goto Wrong;
-            }
-
-            int guess = Convert.ToInt32(guessstr);
-
-            if (guess <= (range1 - 1) || guess > range2)
-            {
-                goto Wrong;
-            }
-
-            if (guess == number)
-            {
-                goto Won;
-            }
-
-            if (guess < number)
-            {
-                Console.WriteLine("Too low, you have " + life + " life point");
-                int actuallife = (life - 1);
-                return actuallife;
-                goto Start;
-            }
-
-            if (guess > number)
-            {
-                Console.WriteLine("Too high, you have " + actuallife + " life point");                
-                goto Start;
-            }
-
-            else
-            {
-                goto Lose;
-            }
-            
-            Wrong:
-            Console.WriteLine("\nWrong input! Type in numbers from " +  range1s +  " to " + range2s + "\n");
-            goto Start;
-
-            
-            Won:
-            Console.WriteLine("You won!");
             Console.ReadLine();
-            goto Finish;
-
-            Lose:
-            Console.WriteLine("You have failed the Company and your Country!\nYou are pathetic! Kill yourself!");
-            Console.ReadLine();
-            goto Finish;
-
-            Finish:
-            Console.WriteLine("End");
-
-
-
         }
     }
 }
