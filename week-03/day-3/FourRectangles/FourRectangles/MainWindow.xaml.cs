@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GreenFox;
 
-namespace CenteredSquare
+namespace FourRectangles
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,7 +25,23 @@ namespace CenteredSquare
         {
             InitializeComponent();
             var foxDraw = new FoxDraw(canvas);
-            foxDraw.DrawRectangle(245, 245, 255, 255);
+
+            foxDraw.StrokeColor(Colors.DeepPink);
+            foxDraw.FillColor(Colors.DeepPink);
+            foxDraw.DrawRectangle(0, 0, 30, 20);
+
+            foxDraw.StrokeColor(Colors.CadetBlue);
+            foxDraw.FillColor(Colors.CadetBlue);
+            foxDraw.DrawRectangle(40, 40, 70, 70);
+
+            foxDraw.StrokeColor(Colors.IndianRed);
+            foxDraw.FillColor(Colors.IndianRed);
+            foxDraw.DrawRectangle(130, 10, 150, 170);
+
+            foxDraw.StrokeColor(Colors.GreenYellow);
+            foxDraw.FillColor(Colors.GreenYellow);
+            foxDraw.DrawRectangle(260, 240, 300, 300);
+
         }
     }
 }
