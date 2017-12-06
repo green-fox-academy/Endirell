@@ -8,16 +8,17 @@ namespace WriteMultipleLines
     {
         static void Main(string[] args)
         {
-            Multi();
+            string newpath = @"C:\Users\user\greenfox\Endirell\week-03\day-1\my-file2.txt";
+            string newword = "something";
+            int newnumber = 6;
+
+            Multi(newpath, newword, newnumber);
             Console.ReadLine();
         }
 
-        static void Multi()
+        static void Multi(string path, string word, int number)
         {
-            string path = @"C:\Users\user\greenfox\Endirell\week-03\day-1\my-file2.txt";
-            string word = "something";
-            int number = 6;
-
+            
             try
             {
                 StreamWriter writer = new StreamWriter(path);
