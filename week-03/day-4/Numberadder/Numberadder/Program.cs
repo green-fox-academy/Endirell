@@ -10,15 +10,34 @@ namespace Numberadder
     {
         static void Main(string[] args)
         {
+            // Write a recursive function that takes one parameter: n and adds numbers from 1 to n.
+
             int ladder = Convert.ToInt32(Console.ReadLine());
-            Ladder(ladder);
+
+            int start = 0;
+
+            Ladder(ladder, start);
             Console.ReadLine();
 
         }
-        static void Ladder(int n)
+        static int Ladder(int n, int one)
         {
-            int one = 1;
-            
+            Console.WriteLine(one + 1);
+
+            if (n > 1)
+            {
+                one = one + 1;
+                n--;
+                Ladder(n, one);
+                
+                return one;                
+            }
+            else
+            {
+                return 0;
+            }
+
+
             for (int i = 1; i <= n; i++)
             {
                 Console.WriteLine(one);

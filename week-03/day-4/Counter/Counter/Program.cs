@@ -10,6 +10,8 @@ namespace Counter
     {
         static void Main(string[] args)
         {
+            // Write a recursive function that takes one parameter: n and counts down from n.
+
             int number = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine("n = " + number);
@@ -20,17 +22,23 @@ namespace Counter
 
         }
 
-        public static void Counter(int n)
+        public static int Counter(int n)
         {
-            int m = n;
+            n = n - 1;
+            Console.WriteLine(n + 1);
+            if (n > 0)
+            {
 
-            for (int i = 0; i < m; i++)
-                if (n > 0)
-                {
-                    Console.WriteLine(n);
-                    n = n -1;
-                }
+                Counter(n);
                 
+                return n;
+                
+            }
+            else
+            {
+                return 0;
+            }
+                                       
             
                 
 
