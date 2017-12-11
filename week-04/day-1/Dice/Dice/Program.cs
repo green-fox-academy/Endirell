@@ -33,13 +33,18 @@ namespace Dice
 
             for (int l = 0; l < dicepool.Count; l++)
             {
-                Console.WriteLine("Reroll");
+                if (dicepool[l].D6 != 6)
+                { 
+                    Console.WriteLine("Reroll number " + (l + 1) + " dice");
+                }
+
                 while (dicepool[l].D6 != 6)
                 {
                 dicepool[l].Reroll();
                 dicepool[l].GetCurrent();
                 }
-                Console.WriteLine("\n\n");
+
+                Console.WriteLine("\n");
             }
 
             Console.ReadLine();
