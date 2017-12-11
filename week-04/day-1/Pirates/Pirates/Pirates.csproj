@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98C6068F-18E0-48EA-996E-61254B36DD54}</ProjectGuid>
+    <ProjectGuid>{E1A3D002-731F-4761-804B-D4271A38F980}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Animal</RootNamespace>
-    <AssemblyName>Animal</AssemblyName>
+    <RootNamespace>Pirates</RootNamespace>
+    <AssemblyName>Pirates</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
