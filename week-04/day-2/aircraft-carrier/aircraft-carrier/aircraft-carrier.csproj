@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1A3D002-731F-4761-804B-D4271A38F980}</ProjectGuid>
+    <ProjectGuid>{06DCA612-8F68-4E34-AF97-E525038A00C4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Pirates</RootNamespace>
-    <AssemblyName>Pirates</AssemblyName>
+    <RootNamespace>aircraft_carrier</RootNamespace>
+    <AssemblyName>aircraft-carrier</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pirate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
