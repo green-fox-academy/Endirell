@@ -11,16 +11,17 @@ namespace aircraft_carrier
         public int hp;
         public int aircraftnumber;
         public int carrierammo;
-        List<Aircraft> aircraftstore = new List<Aircraft>();
+        public List<Aircraft>aircraftstore;
 
          
         public Carrier()
         {
             hp = 15000;
             carrierammo = 10000;
+            List<Aircraft>aircraftstore = new List<Aircraft>();
         }
 
-        public void Fill()
+        public void Addaircraft()
         {
             string input = Console.ReadLine();
             
@@ -36,7 +37,8 @@ namespace aircraft_carrier
 
             else
             {
-                Console.WriteLine("Tipe in F35 or F16!");
+                Console.WriteLine("Type in F35 or F16!");
+                Addaircraft();
             }
 
 
@@ -44,11 +46,34 @@ namespace aircraft_carrier
 
         }
 
-        public string GetStatus()
+        public void Fill()
         {
-            string status;
-            return status = "Hp: " + hp + ", Aircraft count: " + aircraftstore.Count + ", Ammo storage: " + carrierammo + ", Total damage: " + carrierammo;
+            
+
         }
 
+        public string GetStatus()
+        {
+            int total = 0;
+            string aircraftst;
+
+            for (int i = 0; i < aircraftstore.Count; i++)
+            {
+                total += aircraftstore[i].basedamage * aircraftstore[i].ammostore;
+            }
+
+            for (int j = 0; j < aircraftstore.Count; j++)
+            {
+                aircraftst = Aircraft.GetStatus();
+            }
+
+            string status = aircraftstore.Count.ToString() + " " + total.ToString();
+
+
+
+
+            return status;
+        }
+        //"Hp: " + hp + ", Aircraft count: " + aircraftstore.Count + ", Ammo storage: " + carrierammo + ", Total damage: " + carrierammo;
     }
 }

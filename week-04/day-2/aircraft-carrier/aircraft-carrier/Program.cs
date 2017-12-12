@@ -20,6 +20,14 @@ namespace aircraft_carrier
 
             Carrier Nimitz = new Carrier();
 
+            Nimitz.Fill();
+
+            Nimitz.Fill();
+
+            Nimitz.Fill();
+
+            Nimitz.Fill();
+
             Console.WriteLine(Nimitz.GetStatus());
 
             Console.ReadLine();

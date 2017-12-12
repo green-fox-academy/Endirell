@@ -24,7 +24,7 @@ namespace aircraft_carrier
             return damage;
         }
 
-        public int Refill(int refillammo)
+        public virtual int Refill(int refillammo)
         {
             this.refillammo = refillammo;
             
@@ -52,7 +52,7 @@ namespace aircraft_carrier
             return type;
         }
 
-        public string GetStatus()
+        public virtual string GetStatus()
         {
             string status;
             return status = "Type: " + type + ", Ammo: " + ammostore + ", Base Damage: " + basedamage + ", All Damage: " + (ammostore * basedamage);
