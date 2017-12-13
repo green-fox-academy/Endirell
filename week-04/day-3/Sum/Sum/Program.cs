@@ -4,20 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Combat
+namespace Sum
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            Combatant Bill = new Combatant();
 
-            Bill.Charcreator();
+            List<int> people = new List<int>();
+            people.Add(6);
+            people.Add(7);
+            people.Add(7);
+            people.Add(7);
 
-            Bill.GetChar();
+            Console.WriteLine(people.Sum());
 
             Console.ReadLine();
+            
+
+
+
+
         }
     }
 }

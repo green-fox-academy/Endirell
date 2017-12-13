@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74388AF3-2182-4904-8B56-F983F6C804A0}</ProjectGuid>
+    <ProjectGuid>{240F7B9A-FE88-475F-8A39-A30440786982}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Combat</RootNamespace>
-    <AssemblyName>Combat</AssemblyName>
+    <RootNamespace>Sum</RootNamespace>
+    <AssemblyName>Sum</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,9 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Combatant.cs" />
-    <Compile Include="Dice.cs" />
-    <Compile Include="Fight.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
