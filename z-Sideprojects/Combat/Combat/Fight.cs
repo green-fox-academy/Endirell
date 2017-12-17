@@ -9,14 +9,27 @@ namespace Combat
     class Fight
     {
 
-        //extra attack, strength
-        public string rock;
+        //extra attack, strength, brutal attack
+        public string att_rock = "Brutal Attack";
 
-        //extra damage, dexterity
-        public string paper;
+        //extra damage, dexterity, tricky attack
+        public string att_paper = "Tricky Attack";
 
-        //extra defence, agility
-        public string scissor;
+        //extra defence, agility, careful attack
+        public string att_scissor = "Careful Attack";
+
+        //
+        public string def_rock;
+
+        //counter attack, dexterity
+        public string def_paper = "Counter Attack";
+
+        //
+        public string def_scissor;
+
+
+
+
 
 
     }
