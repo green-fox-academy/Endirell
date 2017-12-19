@@ -36,13 +36,30 @@ namespace Wanderer
 
         private void KeyDownEvent(object sender, KeyEventArgs e)
         {
+            int[,] maplayout = new int[,] { {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+                                            {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
+                                            {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+                                            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                                            {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
+                                            {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
+                                            {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
+                                            {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
+                                            {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
+                                            {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
+                                            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0},};
+
+
+
             if (e.Key == Key.Left)
             {
                 double x = FoxDraw.GetLeft(FoxDraw.Tiles[0]) - 50;
                 double y = FoxDraw.GetTop(FoxDraw.Tiles[0]);
                 FoxDraw.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-left.png", UriKind.Relative));
+                
+                int xx = Convert.ToInt32(x) / 50;
+                int yy = Convert.ToInt32(y) / 50;
 
-                if (x >= 0)
+                if (x >= 0 && maplayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }                
@@ -54,7 +71,10 @@ namespace Wanderer
                 double y = FoxDraw.GetTop(FoxDraw.Tiles[0]);
                 FoxDraw.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-right.png", UriKind.Relative));
 
-                if (x < 500)
+                int xx = Convert.ToInt32(x) / 50;
+                int yy = Convert.ToInt32(y) / 50;
+
+                if (x < 500 && maplayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
@@ -67,7 +87,10 @@ namespace Wanderer
                 double y = FoxDraw.GetTop(FoxDraw.Tiles[0]) + 50;
                 FoxDraw.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-down.png", UriKind.Relative));
 
-                if (y < 550)
+                int xx = Convert.ToInt32(x) / 50;
+                int yy = Convert.ToInt32(y) / 50;
+
+                if (y < 550 && maplayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
@@ -79,7 +102,10 @@ namespace Wanderer
                 double y = FoxDraw.GetTop(FoxDraw.Tiles[0]) - 50;
                 FoxDraw.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-up.png", UriKind.Relative));
 
-                if (y >= 0)
+                int xx = Convert.ToInt32(x) / 50;
+                int yy = Convert.ToInt32(y) / 50;
+
+                if (y >= 0 && maplayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
