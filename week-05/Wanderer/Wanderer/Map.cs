@@ -9,81 +9,43 @@ namespace Wanderer
 {
     class Map
     {
+
+        public static readonly int[,] MapLayout = new int[,] {  {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+                                                                {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
+                                                                {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+                                                                {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                                                                {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
+                                                                {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
+                                                                {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
+                                                                {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
+                                                                {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
+                                                                {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
+                                                                {0, 1, 0, 1, 0, 1, 0, 0, 0, 0}};
+
+              
         
-        public Array Maplayout()
-        {
-            int[,] maplayout = new int[,] { {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
-                                            {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
-                                            {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
-                                            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-                                            {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
-                                            {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
-                                            {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
-                                            {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
-                                            {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
-                                            {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
-                                            {0, 1, 0, 1, 0, 1, 1, 0, 0, 0},};
-
-            return maplayout;
-    }
-
-
         public static void Mapmaker(FoxDraw Newmap, int size)
         {
 
             int tilesize = 50;
+            
 
-            for (int i = 0; i < (50 * size); i += 50)
+            for (int i = 0; i < size + 1; i++)
             {
-                for (int j = 0; j < (50 * size + 1); j += 50)
+                for (int j = 0; j < size; j++)
                 {
-                    Newmap.AddImage("Asset/floor.png", i, j);
+                    if (Map.MapLayout[i, j] == 1)
+                    {
+                        Newmap.AddImage("Asset/wall.png", j * tilesize, i * tilesize);
+                    }
+
+                    else
+                    {
+                        Newmap.AddImage("Asset/floor.png", j * tilesize, i * tilesize);
+                    }                    
                 }
             }
-
-            Newmap.AddImage("Asset/wall.png", 0, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 5 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 6 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 8 * tilesize);
-            Newmap.AddImage("Asset/wall.png", tilesize, 10 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 2 * tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 2 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 2 * tilesize, 8 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 0 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 1 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 5 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 6 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 8 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 9 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 3 * tilesize, 10 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 0 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 1 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 3 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 6 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 7 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 9 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 5 * tilesize, 10 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 6 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 6 * tilesize, 6 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 6 * tilesize, 7 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 6 * tilesize, 9 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 7 * tilesize, 1 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 7 * tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 7 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 1 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 2 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 4 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 5 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 6 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 7 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 8 * tilesize);
-            Newmap.AddImage("Asset/wall.png", 8 * tilesize, 9 * tilesize);
+            
         }
 
     }

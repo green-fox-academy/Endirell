@@ -30,26 +30,35 @@ namespace Wanderer
             Map.Mapmaker(Floor, 10);
 
             FoxDraw.AddImage("Asset/hero-down.png", 0, 0);
+
+            Random rdn = new Random();
+
+            int x = rdn.Next(0, 11);
+
+            int y = rdn.Next(0, 12);
+
+            int howmany = rdn.Next(3, 7);
+
+            for (int i = 0; i <= howmany; i++)
+            {
+                x = rdn.Next(0, 11);
+
+                y = rdn.Next(0, 10);
+
+                if (Map.MapLayout[x, y] == 0)
+                {
+                    FoxDraw.AddImage("Asset/skeleton.png", y * 50, x * 50);
+                }
+
+            }
             
+
         }
 
 
         private void KeyDownEvent(object sender, KeyEventArgs e)
         {
-            int[,] maplayout = new int[,] { {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
-                                            {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
-                                            {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
-                                            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-                                            {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
-                                            {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
-                                            {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
-                                            {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
-                                            {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
-                                            {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
-                                            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0},};
-
-
-
+           
             if (e.Key == Key.Left)
             {
                 double x = FoxDraw.GetLeft(FoxDraw.Tiles[0]) - 50;
@@ -59,7 +68,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (x >= 0 && maplayout[yy, xx] == 0)
+                if (x >= 0 && Map.MapLayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }                
@@ -74,7 +83,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (x < 500 && maplayout[yy, xx] == 0)
+                if (x < 500 && Map.MapLayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
@@ -90,7 +99,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (y < 550 && maplayout[yy, xx] == 0)
+                if (y < 550 && Map.MapLayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
@@ -105,7 +114,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (y >= 0 && maplayout[yy, xx] == 0)
+                if (y >= 0 && Map.MapLayout[yy, xx] == 0)
                 {
                     FoxDraw.SetPosition(FoxDraw.Tiles[0], x, y);
                 }
