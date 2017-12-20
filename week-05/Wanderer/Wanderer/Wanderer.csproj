@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Boss.cs" />
+    <Compile Include="Combat.cs" />
+    <Compile Include="Skeleton.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +66,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Character.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="FoxDraw.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="MainWindow.xaml.cs">

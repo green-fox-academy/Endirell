@@ -14,14 +14,16 @@ namespace Wanderer
         string leftimage;
         string rightimage;
 
-        public Hero(FoxDraw Newhero)
+        public Hero()
         {
-            downimage = "Asset/hero-down.png";
-            upimage = "Asset/hero-up.png";
-            leftimage = "Asset/hero-left.png";
-            rightimage = "Asset/hero-right.png";
+            //downimage = "Asset/hero-down.png";
+            //upimage = "Asset/hero-up.png";
+            //leftimage = "Asset/hero-left.png";
+            //rightimage = "Asset/hero-right.png";
 
-            Newhero.AddImage(downimage, 0, 0);
+            //Newhero.AddImage(downimage, 0, 0);
+
+            hp = 20;
         }
 
 
