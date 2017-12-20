@@ -11,9 +11,9 @@ namespace Wanderer
     {
         public static Random rnd = new Random();
 
-        public static readonly int[,] MapLayout = new int[11,10] {  {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
-                                                                    {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
-                                                                    {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+        public static readonly int[,] MapLayout = new int[11,10] {  {2, 2, 2, 1, 0, 1, 0, 0, 0, 0},
+                                                                    {2, 2, 2, 1, 0, 1, 0, 1, 1, 0},
+                                                                    {2, 1, 1, 1, 0, 1, 0, 1, 1, 0},
                                                                     {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                                                                     {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
                                                                     {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
@@ -36,58 +36,20 @@ namespace Wanderer
         //                                                            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0}};
 
 
+        //Heropicture.AddImage("Asset/hero-down.png", Heroguy.x, Heroguy.y);
 
 
-
-
-
-        public static void Skeletonplacer(FoxDraw Newenemy)
+        public static void Enemydrawer(FoxDraw Newenemy, List<Enemy> enemylist)
         {
-            int x = 0;
+            Newenemy.AddImage("Asset/boss.png", enemylist[0].x * 50, enemylist[0].y * 50);
 
-            int y = 0;
-
-            int howmany = rnd.Next(3, 7);
-
-            for (int i = 0; i < howmany; i++)
+            for (int i = 1; i < enemylist.Count; i++)
             {
-                Newenemy.AddImage("Asset/skeleton.png", 0, 0);
-
-                Enemyreplacer(x, y, Newenemy, i);
-            }
-        }
-
-        public static void Bossplacer(FoxDraw Newenemy)
-        {
-            int x = 0;
-
-            int y = 0;
-
-            Newenemy.AddImage("Asset/boss.png", 0, 0);
-
-            Enemyreplacer(x, y, Newenemy, 0);
-                        
-        }
-
-        public static void Enemyreplacer(int z, int w, FoxDraw Newmap, int u)
-        {
-            z = rnd.Next(0, 11);
-
-            w = rnd.Next(0, 10);
-
-            if (Map.MapLayout[z, w] == 0)
-            {
-                Newmap.SetPosition(Newmap.Tiles[u], w * 50, z * 50);
-            }
-
-            else
-            {
-                Enemyreplacer(z, w, Newmap, u);
+                Newenemy.AddImage("Asset/skeleton.png", enemylist[i].x * 50, enemylist[i].y * 50);
             }
             
         }
-
-
+        
         public static void Mapmaker(FoxDraw Newmap, int size)
         {
 

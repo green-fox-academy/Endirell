@@ -9,21 +9,17 @@ namespace Wanderer
 {
     class Hero : Character
     {
-        string upimage;
-        string downimage;
-        string leftimage;
-        string rightimage;
-
+        
         public Hero()
         {
-            //downimage = "Asset/hero-down.png";
-            //upimage = "Asset/hero-up.png";
-            //leftimage = "Asset/hero-left.png";
-            //rightimage = "Asset/hero-right.png";
-
-            //Newhero.AddImage(downimage, 0, 0);
+            
 
             hp = 20;
+        }
+
+        public static void Herodrawer(FoxDraw Newhero, Hero Champion)
+        {
+            Newhero.AddImage("Asset/hero-down.png", Champion.x * 50, Champion.y * 50);
         }
 
 

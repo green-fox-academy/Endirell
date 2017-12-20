@@ -19,44 +19,27 @@ namespace Wanderer
     public partial class MainWindow : Window
     {
         private FoxDraw Heropicture;
-
-        private FoxDraw Bosspicture;
-
-        Character Heroguy = new Hero();
-        Character Bossguy = new Boss();
+        
+        Hero Heroguy = new Hero();
+        
+        List<Enemy> bestiary = new List<Enemy>();
 
         public MainWindow()
         {
             InitializeComponent();
-            Heropicture = new FoxDraw(canvas);
-
-            Bosspicture = new FoxDraw(canvas);
+            Heropicture = new FoxDraw(canvas);            
 
             FoxDraw Floor = new FoxDraw(canvas);
 
-            FoxDraw Enemy = new FoxDraw(canvas);
-
-            FoxDraw Boss = new FoxDraw(canvas);
-
-            Bossguy.x = 1;
-
-            Bossguy.y = 1;
-
+            FoxDraw Enemypic = new FoxDraw(canvas);
+            
             Map.Mapmaker(Floor, 10);
 
-            Bosspicture.AddImage("Asset/boss.png", Bossguy.x * 50, Bossguy.y * 50);
+            Hero.Herodrawer(Heropicture, Heroguy);
 
-            Heropicture.AddImage("Asset/hero-down.png", Heroguy.x, Heroguy.y);
+            Enemy.BestiaryBuilder(bestiary);
 
-            Map.Skeletonplacer(Enemy);
-
-            //Map.Bossplacer(Boss);
-
-            
-        
-
-
-
+            Map.Enemydrawer(Enemypic, bestiary);            
 
         }
 
@@ -66,16 +49,16 @@ namespace Wanderer
 
             //if (Combat situation){Key.Space under}
 
-            if (e.Key == Key.Space)
-            {
-                Heroguy.Fight(Bossguy);
+            //if (e.Key == Key.Space)
+            //{
+            //    Heroguy.Fight(Bossguy);
 
-                if (Bossguy.hp <= 0)
-                {
-                    Bosspicture.Tiles[0].Source = new BitmapImage(new Uri(" ", UriKind.Relative));
-                }
+            //    if (Bossguy.hp <= 0)
+            //    {
+            //        Bosspicture.Tiles[0].Source = new BitmapImage(new Uri(" ", UriKind.Relative));
+            //    }
 
-            }
+            //}
 
             //if (Not combat situation){everything under}
 
@@ -88,7 +71,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (x >= 0 && Map.MapLayout[yy, xx] == 0)
+                if (x >= 0 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.x--;
@@ -104,17 +87,23 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
                 
-                if (x < 500 && Map.MapLayout[yy, xx] == 0)
+                if (x < 500 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.x++;
                 }
 
-                if (Heroguy.y == Bossguy.y && Heroguy.x + 1 != Bossguy.x)
-                {
-                    Heropicture.SetPosition(Heropicture.Tiles[0], (x - 50), y);
-                    Heroguy.x--;
-                }
+                //for (int i = 0; i < bestiary.Count; i++)
+                //{
+                //    if (Heroguy.y == bestiary[i].y && Heroguy.x + 1 != bestiary[i].x)
+                //    {
+                //        Heropicture.SetPosition(Heropicture.Tiles[0], (x - 50), y);
+                //        Heroguy.x--;
+                //    }
+                //}
+
+
+                
                 
         }
 
@@ -129,7 +118,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (y < 550 && Map.MapLayout[yy, xx] == 0)
+                if (y < 550 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.y++;
@@ -146,7 +135,7 @@ namespace Wanderer
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
 
-                if (y >= 0 && Map.MapLayout[yy, xx] == 0)
+                if (y >= 0 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.y--;
