@@ -19,27 +19,32 @@ namespace Wanderer
     public partial class MainWindow : Window
     {
         private FoxDraw Heropicture;
-        
+
+        private FoxDraw Enemypicture;
+
         Hero Heroguy = new Hero();
-        
+
         List<Enemy> bestiary = new List<Enemy>();
 
+        
         public MainWindow()
         {
             InitializeComponent();
-            Heropicture = new FoxDraw(canvas);            
+            Heropicture = new FoxDraw(canvas);
+
+            Enemypicture = new FoxDraw(canvas);
 
             FoxDraw Floor = new FoxDraw(canvas);
 
-            FoxDraw Enemypic = new FoxDraw(canvas);
-            
+            //FoxDraw Enemypic = new FoxDraw(canvas);
+
             Map.Mapmaker(Floor, 10);
 
             Hero.Herodrawer(Heropicture, Heroguy);
 
             Enemy.BestiaryBuilder(bestiary);
 
-            Map.Enemydrawer(Enemypic, bestiary);            
+            Map.Enemydrawer(Enemypicture, bestiary);
 
         }
 
@@ -49,16 +54,36 @@ namespace Wanderer
 
             //if (Combat situation){Key.Space under}
 
-            //if (e.Key == Key.Space)
-            //{
-            //    Heroguy.Fight(Bossguy);
+            if (e.Key == Key.Space)
+            {
+                double x = Heropicture.GetLeft(Heropicture.Tiles[0]);
+                double y = Heropicture.GetTop(Heropicture.Tiles[0]);
 
-            //    if (Bossguy.hp <= 0)
-            //    {
-            //        Bosspicture.Tiles[0].Source = new BitmapImage(new Uri(" ", UriKind.Relative));
-            //    }
+                for (int i = 0; i < bestiary.Count; i++)
+                {
+                    double enemyx = Enemypicture.GetLeft(Enemypicture.Tiles[i]);
+                    double enemyy = Enemypicture.GetTop(Enemypicture.Tiles[i]);
 
-            //}
+
+                    if (enemyx == x && enemyy == y + 50 || enemyx == x && enemyy == y - 50 || enemyx + 50 == x && enemyy == y || enemyx - 50 == x && enemyy == y)
+                    {
+                        Heroguy.Fight(bestiary[i]);
+
+                        if (bestiary[i].hp <= 0)
+                        {
+                            Enemypicture.Tiles[i].Source = new BitmapImage(new Uri(" ", UriKind.Relative));
+                            Enemypicture.SetPosition(Enemypicture.Tiles[i], -50, -50);
+                        }
+                    }
+
+                }
+
+
+
+
+                
+
+            }
 
             //if (Not combat situation){everything under}
 
@@ -67,15 +92,33 @@ namespace Wanderer
                 double x = Heropicture.GetLeft(Heropicture.Tiles[0]) - 50;
                 double y = Heropicture.GetTop(Heropicture.Tiles[0]);
                 Heropicture.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-left.png", UriKind.Relative));
-                
+
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
+                
 
                 if (x >= 0 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
+
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.x--;
-                }                
+
+
+                    for (int i = 0; i < bestiary.Count; i++)
+                    {
+                        double enemyx = Enemypicture.GetLeft(Enemypicture.Tiles[i]);
+                        double enemyy = Enemypicture.GetTop(Enemypicture.Tiles[i]);
+
+
+                        if (enemyx == x && enemyy == y)
+                        {
+                            Heropicture.SetPosition(Heropicture.Tiles[0], (x + 50), y);
+                            Heroguy.x++;
+                        }
+
+                    }
+
+                }
             }
 
             if (e.Key == Key.Right)
@@ -86,11 +129,25 @@ namespace Wanderer
 
                 int xx = Convert.ToInt32(x) / 50;
                 int yy = Convert.ToInt32(y) / 50;
-                
+
                 if (x < 500 && (Map.MapLayout[yy, xx] == 0 || Map.MapLayout[yy, xx] == 2))
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.x++;
+
+                    for (int i = 0; i < bestiary.Count; i++)
+                    {
+                        double enemyx = Enemypicture.GetLeft(Enemypicture.Tiles[i]);
+                        double enemyy = Enemypicture.GetTop(Enemypicture.Tiles[i]);
+
+
+                        if (enemyx == x && enemyy == y)
+                        {
+                            Heropicture.SetPosition(Heropicture.Tiles[0], (x - 50), y);
+                            Heroguy.x++;
+                        }
+
+                    }
                 }
 
                 //for (int i = 0; i < bestiary.Count; i++)
@@ -101,16 +158,14 @@ namespace Wanderer
                 //        Heroguy.x--;
                 //    }
                 //}
-
-
                 
-                
-        }
+
+            }
 
 
             if (e.Key == Key.Down)
             {
-                
+
                 double x = Heropicture.GetLeft(Heropicture.Tiles[0]);
                 double y = Heropicture.GetTop(Heropicture.Tiles[0]) + 50;
                 Heropicture.Tiles[0].Source = new BitmapImage(new Uri("Asset/hero-down.png", UriKind.Relative));
@@ -122,6 +177,20 @@ namespace Wanderer
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.y++;
+
+                    for (int i = 0; i < bestiary.Count; i++)
+                    {
+                        double enemyx = Enemypicture.GetLeft(Enemypicture.Tiles[i]);
+                        double enemyy = Enemypicture.GetTop(Enemypicture.Tiles[i]);
+
+
+                        if (enemyx == x && enemyy == y)
+                        {
+                            Heropicture.SetPosition(Heropicture.Tiles[0], x, (y - 50));
+                            Heroguy.x++;
+                        }
+
+                    }
                 }
 
             }
@@ -139,6 +208,20 @@ namespace Wanderer
                 {
                     Heropicture.SetPosition(Heropicture.Tiles[0], x, y);
                     Heroguy.y--;
+
+                    for (int i = 0; i < bestiary.Count; i++)
+                    {
+                        double enemyx = Enemypicture.GetLeft(Enemypicture.Tiles[i]);
+                        double enemyy = Enemypicture.GetTop(Enemypicture.Tiles[i]);
+
+
+                        if (enemyx == x && enemyy == y)
+                        {
+                            Heropicture.SetPosition(Heropicture.Tiles[0], x, (y + 50));
+                            Heroguy.x++;
+                        }
+
+                    }
                 }
             }
 

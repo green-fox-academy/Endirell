@@ -11,10 +11,14 @@ namespace Wanderer
     {
         public static Random rnd = new Random();
 
+        bool hasthekey;
+
         public Enemy()
         {
             x = 0;
             y = 0;
+            hp = 5;
+            hasthekey = false;
 
         }
 
@@ -28,7 +32,11 @@ namespace Wanderer
             {
                 enemylist.Add(new Skeleton());
             }
-            
+
+            int keyholder = rnd.Next(1, howmany + 1);
+
+            enemylist[keyholder].hasthekey = true;
+                
             Enemyplacer(enemylist, enemylist.Count);
             
         }
@@ -59,7 +67,7 @@ namespace Wanderer
                                
             }
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 Nosameplace(monsterlist);
             }

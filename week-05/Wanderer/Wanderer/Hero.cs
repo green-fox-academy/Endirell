@@ -11,9 +11,7 @@ namespace Wanderer
     {
         
         public Hero()
-        {
-            
-
+        {            
             hp = 20;
         }
 
