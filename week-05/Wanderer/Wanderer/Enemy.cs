@@ -12,13 +12,14 @@ namespace Wanderer
         public static Random rnd = new Random();
 
         bool hasthekey;
-
+        
         public Enemy()
         {
             x = 0;
             y = 0;
             hp = 5;
             hasthekey = false;
+            
 
         }
 

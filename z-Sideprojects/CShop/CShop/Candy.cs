@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TakeMeToThe
+namespace CShop
 {
-    class Candy : Sweet
+    class Candy : Sweets
     {
+
         public Candy()
         {
-            price = 20;
-
+            name = "candies";
             sugarcontent = 10;
-
-            type = "candy";
+            price = 20;
         }
     }
 }

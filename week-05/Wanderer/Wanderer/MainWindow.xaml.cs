@@ -46,6 +46,13 @@ namespace Wanderer
 
             Map.Enemydrawer(Enemypicture, bestiary);
 
+            if (bestiary[0].hp <= 0)
+            {
+                Map.Mapmaker(Floor, 10);
+                Enemy.BestiaryBuilder(bestiary);
+                Map.Enemydrawer(Enemypicture, bestiary);
+            }
+
         }
 
 
