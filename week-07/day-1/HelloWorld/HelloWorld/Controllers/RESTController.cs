@@ -12,7 +12,8 @@ namespace HelloWorld.Controllers
     [Route("api")]
     public class RESTController : Controller
     {
-        
+        public static int counter = 0;
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -21,14 +22,13 @@ namespace HelloWorld.Controllers
         
 
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting([FromQuery] string name)
         {
-            Greetings greet = new Greetings()
-            {
-                Id = 1,
+            Greetings greet = new Greetings(name);
 
-                Content = "Guten Tag!"
-            };
+            counter++;
+
+            greet.Id = counter;
         
             return new JsonResult(greet);
         }
