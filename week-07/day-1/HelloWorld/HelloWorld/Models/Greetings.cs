@@ -15,5 +15,11 @@ namespace HelloWorld.Models
             Id = 1;
             Content = "Hello, " + name + " Tourist!";
         }
+
+        public Greetings()
+        {
+            Id = 1;
+            Content = "Hello!";
+        }
     }
 }
