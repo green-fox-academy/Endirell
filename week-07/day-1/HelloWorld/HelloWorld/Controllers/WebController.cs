@@ -12,6 +12,8 @@ namespace HelloWorld.Controllers
     [Route("web")]
     public class WebController : Controller
     {
+        public static int counter = 0;
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -28,6 +30,21 @@ namespace HelloWorld.Controllers
             };
 
             return View(greeting);
+        }
+
+        [Route("greet")]
+        public IActionResult Greeting([FromQuery] string name)
+        {
+            Greetings greet = new Greetings(name);
+
+            counter++;
+
+            greet.Id = counter;
+
+            greet.Content = "Hello, " + name + "!This site was loaded " + counter + " times since last server start.";
+
+            //return new JsonResult(greet);
+            return View(greet);
         }
     }
 }
