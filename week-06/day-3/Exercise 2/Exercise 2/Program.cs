@@ -13,16 +13,21 @@ namespace Exercise_2
             int[] numbers = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };
 
             var oddNumbers = from number in numbers
-                              where (number % 2 != 0)
-                              orderby number descending
-                              select number;
+                             where (number % 2 != 0)
+                             orderby number descending
+                             select number;
 
-            double average = oddNumbers.Average(); 
-            
+            double average = oddNumbers.Average();
+
             Console.WriteLine(average);
 
-            Console.ReadKey();
+            Console.WriteLine();
 
+            var oddaverage = numbers.Where(n => n % 2 != 0).OrderByDescending(n => n).Average(n => n);
+
+            Console.WriteLine(oddaverage);
+
+            Console.ReadKey();
         }
     }
 }

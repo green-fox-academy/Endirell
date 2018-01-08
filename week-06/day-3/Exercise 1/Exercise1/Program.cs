@@ -18,9 +18,18 @@ namespace Exercise1
                               orderby number descending
                               select number;
 
-            foreach (var n in evenNumbers)
+            foreach (var i in evenNumbers)
             {
-                Console.WriteLine(n);
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine();
+
+            var even = numbers.Where(n => n % 2 == 0).OrderByDescending(n => n).Select(n => n);
+
+            foreach (var e in even)
+            {
+                Console.WriteLine(e);
             }
 
             Console.ReadKey();
