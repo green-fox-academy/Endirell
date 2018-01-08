@@ -41,7 +41,7 @@ namespace HelloWorld.Controllers
 
             greet.Id = counter;
 
-            greet.Content = "Hello, " + name + "!This site was loaded " + counter + " times since last server start.";
+            greet.Content = "Hello, " + name + "! This site was loaded " + counter + " times since last server start.";
 
             //return new JsonResult(greet);
             return View(greet);
