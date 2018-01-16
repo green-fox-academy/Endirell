@@ -1,0 +1,81 @@
+﻿@model BankOfSimba.ViewModels.BankAccountsViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Accountowner</th>
+            <th>Balance</th>
+            <th>Species</th>
+            <th>Index</th>
+            <th>Singh Is Kinng?</th>
+            <th>I`m bad. I`m bad. I`m really, really...</th>
+        </tr>
+        @{
+            for (int i = 0; i < Model.Animallist.Count; i++)
+            {
+                <tr>
+                    @if (@Model.Animallist[i].IsKing.Equals(true))
+                    {
+                        <td style="background-color:darkgoldenrod">@Model.Animallist[i].Name</td>
+                    }
+                    else
+                    {
+                        <td>@Model.Animallist[i].Name</td>
+                    }
+
+                    <td>@Model.Animallist[i].Balance.00 Zebra</td>
+                    <td>@Model.Animallist[i].AnimalType</td>
+                    <td>@i</td>
+                    @if (@Model.Animallist[i].IsKing.Equals(true))
+                    {
+                        <td>Kinng</td>
+                    }
+                    else
+                    {
+                        <td>no</td>
+                    }
+
+                    @if (@Model.Animallist[i].IsGood.Equals(true))
+                    {
+                        <td>good</td>
+                    }
+                    else
+                    {
+                        <td>bad</td>
+                    }
+
+
+                </tr>
+            }
+
+        }
+    </table>
+    <form action="/addmoney" method="post">
+        <input type="submit" value="Gimmie Money">
+    </form>
+    <br />
+    <br />
+    <form action="/addnewbankaccount" method="post">
+        Name:
+        <input type="text" name="name" value="">
+        <br />
+        Balance:
+        <input type="text" name="amount" value="">
+        <br />
+        AnimalType:
+        <input type="text" name="animal" value="">
+        <br />
+        Kinng?:
+        <input type="checkbox" name="king" value="true">
+        <br />
+        I`m good?:
+        <input type="checkbox" name="good" value="true">
+        <br />
+        <input type="submit" value="Add new bankaccount owner">
+    </form>
+</body>
+</html>

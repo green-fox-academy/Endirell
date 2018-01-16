@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankOfSimba", "BankOfSimba\BankOfSimba.csproj", "{FD2900C8-F649-4A9E-AFF0-AA993F6B4660}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankOfSimba", "BankOfSimba\BankOfSimba.csproj", "{3479F26D-D727-4E73-BF3E-18B3A51AF567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD2900C8-F649-4A9E-AFF0-AA993F6B4660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD2900C8-F649-4A9E-AFF0-AA993F6B4660}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD2900C8-F649-4A9E-AFF0-AA993F6B4660}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD2900C8-F649-4A9E-AFF0-AA993F6B4660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3479F26D-D727-4E73-BF3E-18B3A51AF567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3479F26D-D727-4E73-BF3E-18B3A51AF567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3479F26D-D727-4E73-BF3E-18B3A51AF567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3479F26D-D727-4E73-BF3E-18B3A51AF567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A5B1D205-F8CD-4DBF-AAF4-491E781B4CA8}
+		SolutionGuid = {B4672FFD-9096-4523-845D-D71B6B9B8802}
 	EndGlobalSection
 EndGlobal
