@@ -7,5 +7,11 @@ namespace Counter.Models
 {
     public class CounterModel
     {
+        public int Number { get; set; }
+
+        public CounterModel()
+        {
+            Number = 0;
+        }
     }
 }
