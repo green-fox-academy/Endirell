@@ -88,10 +88,5 @@ namespace BankOfSimba.ViewModels
 
             Animallist.Add(accountofanimal);
         }
-
-
-
-
-
     }
 }
