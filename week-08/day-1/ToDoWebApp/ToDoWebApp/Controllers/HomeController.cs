@@ -8,15 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ToDoWebApp.Controllers
 {
-    [Route("todo")]
-    public class TodoController : Controller
+    [Route("")]
+    public class HomeController : Controller
     {
-        [HttpGet("")]
-        [HttpGet("list")]
-        public IActionResult List()
+        // GET: /<controller>/
+        public IActionResult Index()
         {
-            return Content("This is my first todo");
+            return View();
         }
-
-}
+    }
 }
