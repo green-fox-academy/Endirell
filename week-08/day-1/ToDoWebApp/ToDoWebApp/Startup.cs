@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoWebApp.Repositories;
+using ToDoWebApp.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoWebApp
 {
@@ -16,6 +19,8 @@ namespace ToDoWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<TodoContext>();
+            services.AddScoped<TodoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
