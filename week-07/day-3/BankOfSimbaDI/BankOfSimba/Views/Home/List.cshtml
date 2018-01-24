@@ -1,0 +1,52 @@
+﻿@model BankOfSimba.ViewModels.BankAccountsViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>            
+            <th>King?</th>            
+        </tr>
+        @{
+            for (int i = 0; i < Model.Animallist.Count; i++)
+            {
+                <tr>
+                    @if (@Model.Animallist[i].IsKing.Equals(true))
+                    {
+                        <td style="background-color:yellow">@Model.Animallist[i].Name</td>
+                    }
+                    else
+                    {
+                        <td>@Model.Animallist[i].Name</td>
+                    }
+                    
+                    @if (@Model.Animallist[i].IsKing.Equals(true))
+                    {
+                        <td>King</td>
+                    }
+                    else
+                    {
+                        <td>no</td>
+                    }
+                                       
+                </tr>
+            }
+
+        }
+    </table>    
+    <br />
+    <br />
+    <form action="/addnewbankaccount" method="post">
+        Name:
+        <input type="text" name="name" value="">
+        <br />       
+        King?:
+        <input type="checkbox" name="king" value="true">
+        <br />       
+        <input type="submit" value="Add new bankaccount owner">
+    </form>
+</body>
+</html>

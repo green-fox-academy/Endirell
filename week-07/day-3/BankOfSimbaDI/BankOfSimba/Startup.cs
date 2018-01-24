@@ -6,11 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using ToDoWebApp.Repositories;
-using ToDoWebApp.Entities;
-using Microsoft.EntityFrameworkCore;
+using BankOfSimba.ViewModels;
 
-namespace ToDoWebApp
+namespace BankOfSimba
 {
     public class Startup
     {
@@ -19,21 +17,19 @@ namespace ToDoWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<TodoContext>(options => options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Todo; Integrated Security = True; Connect Timeout = 30;"));
-            services.AddScoped<TodoContext>();
-            services.AddScoped<TodoRepository>();
-
+            services.AddSingleton<BankAccountsViewModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
 
             app.Run(async (context) =>
             {
