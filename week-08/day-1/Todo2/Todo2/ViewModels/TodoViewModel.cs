@@ -8,6 +8,6 @@ namespace Todo2.ViewModels
 {
     public class TodoViewModel
     {
-        public List<Todo> TodoList { get; set; } = new List<Todo>();
+        //public List<Todo> TodoList { get; set; } = new List<Todo>();
     }
 }

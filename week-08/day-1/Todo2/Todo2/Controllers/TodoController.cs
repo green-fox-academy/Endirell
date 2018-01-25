@@ -23,9 +23,8 @@ namespace Todo2.Controllers
         [HttpGet("list")]
         public IActionResult List()
         {
-
-
-            return View();
+            
+            return View(todoRepository.ListOfToDos());
         }
     }
 }
