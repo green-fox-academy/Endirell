@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using DBDemo.Entities;
+using DBDemo.Repositories;
 
 namespace DBDemo
 {
@@ -18,6 +19,8 @@ namespace DBDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<SuperheroContext>();
+            services.AddScoped<SuperheroRepository>();
             services.AddDbContext<SuperheroContext>((options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=superhero;Integrated Security=True;Connect Timeout=30;")));
         }
 
@@ -29,10 +32,7 @@ namespace DBDemo
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
         }
     }
 }

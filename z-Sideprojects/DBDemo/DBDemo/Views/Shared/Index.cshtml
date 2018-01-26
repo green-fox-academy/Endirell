@@ -1,0 +1,52 @@
+﻿@model System.Collections.Generic.List<DBDemo.Models.Superhero>
+<!DOCTYPE html>
+<style>
+    td {
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+    }
+
+    table {
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+</style>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Superheroes</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Superpower</td>
+            <td>Has a tragic backstory?</td>
+            <td>Has a secret identity?</td>
+        </tr>
+        @foreach (var hero in @Model)
+        {
+            <tr>
+                <td>@hero.Name</td>
+                <td>@hero.SuperPower</td>
+                @if (@hero.TragicBackstory == true)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                @if (@hero.PublicIdentity == false)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+            </tr>
+        }
+    </table>
+</body>
+</html>
