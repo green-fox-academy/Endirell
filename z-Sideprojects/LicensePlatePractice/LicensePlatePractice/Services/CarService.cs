@@ -20,6 +20,24 @@ namespace LicensePlatePractice.Services
         {
             return carRepository.GetCarList();
         }
+        
+        public List<Car> GetSearchList(string q, int police, int diplomat)
+        {
+            if (q != null)
+            {
+                return carRepository.PlateFilter(q);
+            }
+            else if (police == 1)
+            {
+                return carRepository.PoliceFilter();
+            }
+            else if (diplomat == 1)
+            {
+                return carRepository.DiplomatFilter();
+            }
+            
+            return carRepository.GetCarList();
+        }
 
     }
 }

@@ -23,9 +23,9 @@ namespace LicensePlatePractice.Controllers
         }
 
         [HttpGet("search")]
-        public IActionResult Search()
+        public IActionResult Search([FromQuery] string q, int police, int diplomat)
         {
-            return View();
+            return View("Index", carService.GetSearchList(q, police, diplomat));
         }
 
         [HttpGet("search/{brand}")]

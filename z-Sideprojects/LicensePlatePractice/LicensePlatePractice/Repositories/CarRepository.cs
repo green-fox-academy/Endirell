@@ -20,5 +20,20 @@ namespace LicensePlatePractice.Repositories
         {
             return carContext.Cars.ToList();
         }
+
+        public List<Car> PlateFilter(string q)
+        {
+            return carContext.Cars.Where(c => c.LicensePlate.Contains(q)).ToList();
+        }
+
+        public List<Car> PoliceFilter()
+        {
+            return carContext.Cars.Where(c => c.LicensePlate.StartsWith("RB")).ToList();
+        }
+
+        public List<Car> DiplomatFilter()
+        {
+            return carContext.Cars.Where(c => c.LicensePlate.StartsWith("DT")).ToList();
+        }
     }
 }
