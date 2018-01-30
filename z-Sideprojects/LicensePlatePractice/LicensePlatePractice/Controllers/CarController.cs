@@ -19,7 +19,7 @@ namespace LicensePlatePractice.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(carService.GetList());
         }
 
         [HttpGet("search")]

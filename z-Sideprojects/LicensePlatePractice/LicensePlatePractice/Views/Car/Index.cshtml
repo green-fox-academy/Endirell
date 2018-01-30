@@ -1,4 +1,4 @@
-﻿@*@model System.Collections.Generic.List<SuchExam.Models.LicencePlate>*@
+﻿@model System.Collections.Generic.List<LicensePlatePractice.Models.Car>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -8,5 +8,24 @@
 <body>
     Body, body fire!
     @*<table border="1">*@
+    <table border="1">
+        <tr>
+            <td>Plate</td>
+            <td>Brand</td>
+            <td>Model</td>
+            <td>Color</td>
+            <td>Year</td>
+        </tr>
+        @foreach (var car in @Model)
+        {
+            <tr>
+                <td>@car.LicensePlate</td>
+                <td>@car.CarBrand</td>
+                <td>@car.CarModel</td>
+                <td>@car.Color</td>
+                <td>@car.Year</td>
+            </tr>
+        }
+    </table>
 </body>
 </html>

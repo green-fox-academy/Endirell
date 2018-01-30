@@ -1,4 +1,5 @@
 ﻿using LicensePlatePractice.Entities;
+using LicensePlatePractice.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,16 @@ namespace LicensePlatePractice.Repositories
 {
     public class CarRepository
     {
-        public CarContext CarContext { get; set; }
+        private CarContext carContext;
 
         public CarRepository(CarContext carContext)
         {
-            CarContext = carContext;
+            this.carContext = carContext;
         }
 
+        public List<Car> GetCarList()
+        {
+            return carContext.Cars.ToList();
+        }
     }
 }
