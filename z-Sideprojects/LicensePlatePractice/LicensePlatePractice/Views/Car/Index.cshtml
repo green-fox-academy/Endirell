@@ -8,10 +8,10 @@
 <body>
     Body, body fire!
     <form action="/search" method="get">
-        <input type="text" name="q" value="" />
+        <input type="text" name="q" value="" maxlength="7"/>
         <button type="submit">Search</button>
-        <a href="search?police=1">Police cars only</a>
-        <a href="search?diplomat=1">Diplomats only</a>
+        <a href="/search?police=1">Police cars only</a>
+        <a href="/search?diplomat=1">Diplomats only</a>
     </form>
     @if (!@Model.Any())
     {
