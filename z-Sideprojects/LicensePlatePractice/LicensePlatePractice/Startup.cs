@@ -19,7 +19,6 @@ namespace LicensePlatePractice
         {
             services.AddMvc();
             services.AddDbContext<CarContext>((options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=cars;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")));
-            services.AddScoped<CarContext>();
             services.AddScoped<CarRepository>();
             services.AddScoped<CarService>();
         }
