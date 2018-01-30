@@ -35,5 +35,13 @@ namespace LicensePlatePractice.Repositories
         {
             return carContext.Cars.Where(c => c.LicensePlate.StartsWith("DT")).ToList();
         }
+
+        public List<Car> BrandFilter(string brandname)
+        {
+            return carContext.Cars.Where(c => c.CarBrand.Equals(brandname)).ToList();
+        }
+
+        
+
     }
 }

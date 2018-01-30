@@ -39,5 +39,12 @@ namespace LicensePlatePractice.Services
             return carRepository.GetCarList();
         }
 
+        public List<Car> GetBrandList(string brandname)
+        {
+            return carRepository.BrandFilter(brandname);
+        }
+
+        
+
     }
 }

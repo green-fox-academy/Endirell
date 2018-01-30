@@ -29,9 +29,9 @@ namespace LicensePlatePractice.Controllers
         }
 
         [HttpGet("search/{brand}")]
-        public IActionResult BrandSearch([FromRoute] string brandname)
+        public IActionResult BrandSearch([FromRoute] string brand)
         {
-            return View();
+            return View("Index", carService.GetBrandList(brand));
         }
 
 
