@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using LicensePlatePractice.Entities;
 using Microsoft.EntityFrameworkCore;
 using LicensePlatePractice.Repositories;
+using LicensePlatePractice.Services;
 
 namespace LicensePlatePractice
 {
@@ -20,6 +21,7 @@ namespace LicensePlatePractice
             services.AddDbContext<CarContext>((options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=cars;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")));
             services.AddScoped<CarContext>();
             services.AddScoped<CarRepository>();
+            services.AddScoped<CarService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

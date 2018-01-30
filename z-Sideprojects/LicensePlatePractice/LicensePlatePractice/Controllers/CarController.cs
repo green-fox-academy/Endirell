@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LicensePlatePractice.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace LicensePlatePractice.Controllers
     [Route("")]
     public class CarController : Controller
     {
+        private CarService carService;
+
+        public CarController(CarService carService)
+        {
+            this.carService = carService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -16,6 +24,12 @@ namespace LicensePlatePractice.Controllers
 
         [HttpGet("search")]
         public IActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpGet("search/{brand}")]
+        public IActionResult BrandSearch([FromRoute] string brandname)
         {
             return View();
         }
