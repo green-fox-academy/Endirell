@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CShop
 {
-    class Lollipop : Sweets
+    public class Lollipop : Sweets
     {
         public Lollipop()
         {

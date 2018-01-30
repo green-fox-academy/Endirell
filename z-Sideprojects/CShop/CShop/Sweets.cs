@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CShop
 {
-    class Sweets
+    public class Sweets
     {
         protected string name;
         protected int sugarcontent;

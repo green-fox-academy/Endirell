@@ -23,7 +23,7 @@ namespace CShop
             if (type == "lollipop")
             {
                 candystore.Add(new Lollipop());
-                sugarstorage -= Lollipop.sugarcontent
+                sugarstorage -= Lollipop;
             }
 
             if (type == "candy")
