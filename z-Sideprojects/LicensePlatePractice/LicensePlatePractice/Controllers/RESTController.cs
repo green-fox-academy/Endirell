@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LicensePlatePractice.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,18 @@ namespace LicensePlatePractice.Controllers
     [Route("api")]
     public class RESTController : Controller
     {
-        //[HttpGet("search/{brand}")]
-        //public IActionResult Search()
-        //{
-        //    return Json();
-        //}
+        private CarService carService;
+
+        public RESTController(CarService carService)
+        {
+            this.carService = carService;        
+        }
+
+        [HttpGet("search/{brand}")]
+        public IActionResult Search([FromRoute]string brand)
+        {
+            return Json(new { result = "ok", data = carService.GetBrandList(brand) });
+        }
     }
 
    
