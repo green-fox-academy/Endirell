@@ -1,0 +1,84 @@
+﻿@*@model System.Collections.Generic.List<LicensePlatePractice.Models.Car>*@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Green Fox Fashion Web Store</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1 align="center">Green Fox Fashion Web Store</h1>
+    <form action="/warehouse/summary" method="post">
+        <select name="itemName">
+            <option value="" selected disabled hidden>Select item name</option>
+            <option value="firestItemName">itemName</option>
+            <option value="secondItemName">itemName2</option>
+        </select>
+        <select name="size">
+            <option value="" selected disabled hidden>Select size</option>
+            <option value="size">size</option>
+            <option value="size">size2</option>
+        </select>
+        <input type="text" name="amount" placeholder="Amount 1-99" required minlength="1" maxlength="2" pattern="[1-99]"/>
+        <button type="submit">GET TOTAL</button>
+    </form>
+    <br />
+    <table border="1">
+        <tr>
+            <th>Item Name</th>
+            <th>Manufacturer</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Unit price</th>
+        </tr>
+        <tr>
+            <td>MyFavourite</td>
+            <td>Me</td>
+            <td>Jumper</td>
+            <td>L</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Pinky</td>
+            <td>NotMe</td>
+            <td>Tie</td>
+            <td>M</td>
+            <td>45</td>
+        </tr>
+    </table>
+
+    @*<form action="/search" method="get">
+        <input type="text" name="q" value="" maxlength="7" />
+        <button type="submit">Search</button>
+        <a href="/search?police=1">Police cars only</a>
+        <a href="/search?diplomat=1">Diplomats only</a>
+    </form>
+    @if (!@Model.Any())
+    {
+        <p>Sorry, the submitted licence plate is not valid</p>
+    }
+    @if (@Model.Any())
+    {
+        <table border="1">
+            <tr>
+                <td>Licence plate</td>
+                <td>Brand</td>
+                <td>Model</td>
+                <td>Color</td>
+                <td>Year</td>
+            </tr>
+            @foreach (var car in @Model)
+            {
+                <tr>
+                    <td>@car.LicensePlate</td>
+                    <td>
+                        <a href="/search/@car.CarBrand">@car.CarBrand</a>
+                    </td>
+                    <td>@car.CarModel</td>
+                    <td>@car.Color</td>
+                    <td>@car.Year</td>
+                </tr>
+            }
+        </table>
+    }*@
+</body>
+</html>
