@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.Models;
 using WebStore.Services;
 
 namespace WebStore.Controllers
@@ -12,15 +13,9 @@ namespace WebStore.Controllers
         {
             this.webStoreService = webStoreService;
         }
-
-        [HttpGet("warehouse")]
-        public IActionResult Summary()
-        {
-
-            return View();
-        }
-
+        
         [HttpGet("")]
+        [HttpGet("warehouse")]
         public IActionResult Warehouse()
         {
 
@@ -28,19 +23,22 @@ namespace WebStore.Controllers
         }
 
         [HttpPost("warehouse/summary")]
-        public IActionResult Inde()
+        public IActionResult Summary(int amount, string unitname, string unitsize)
         {
-
-            return View();
+            return View(webStoreService.GetSummary(amount, unitname, unitsize));
         }
 
         [HttpGet("warehouse/query")]
-        public IActionResult Ind()
+        public IActionResult Itemlister([FromQuery] int price, string type)
         {
             //return Json();
-            return Ok();
+            return Json(webStoreService.ListByPrice(price, type));
         }
+        //public IActionResult Query(double price, string type)
+        //{
+        //    return Json(clothesService.SearchWithSize(price, type));
+        //}
 
-       
+
     }
 }

@@ -30,5 +30,28 @@ namespace WebStore.Repositories
         {
             return webStoreContext.Dresses.Select(c => c.Size).OrderBy(c => c).Distinct().ToList();
         }
+
+        public SummarizedItem GetSummarizedItem(int amount, string unitname, string unitsize)
+        {
+            SummarizedItem summarizedItem = new SummarizedItem(amount, unitname, unitsize);
+
+            List<Dress> dresslist = GetAllClothes();
+
+            foreach (var unit in dresslist)
+            {
+                if (unit.ItemName.Equals(summarizedItem.UnitName))
+                {
+                    summarizedItem.UnitCategory = unit.Category;
+                    summarizedItem.UnitManufacturer = unit.Manufacturer;
+                    summarizedItem.UnitPrice = unit.UnitPrice;
+                }
+            }
+
+            summarizedItem.Subtotal = summarizedItem.UnitPrice * summarizedItem.Amount;
+
+            return summarizedItem;
+        }
+            
+
     }
 }

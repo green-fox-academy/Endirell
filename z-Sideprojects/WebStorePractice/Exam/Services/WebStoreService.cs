@@ -16,32 +16,45 @@ namespace WebStore.Services
         {
             this.webStoreRepository = webStoreRepository;
         }
-
-        public List<Dress> GetClothesList()
-        {
-            return webStoreRepository.GetAllClothes();
-        }
-
-        public List<string> GetClothesNames()
-        {
-            return webStoreRepository.GetNameOfClothes();
-        }
-
-        public List<string> GetClothesSizes()
-        {
-            return webStoreRepository.GetSizeOfClothes();
-        }
-
+        
         public WebStoreViewModel GetViewModel()
         {
             WebStoreViewModel viewmodel = new WebStoreViewModel
             {
-                ClothesNames = GetClothesNames(),
-                ClothesSizes = GetClothesSizes(),
-                Clothes = GetClothesList()
+                ClothesNames = webStoreRepository.GetNameOfClothes(),
+                ClothesSizes = webStoreRepository.GetSizeOfClothes(),
+                Clothes = webStoreRepository.GetAllClothes()
             };
 
             return viewmodel;
+        }
+        
+        public SummarizedItem GetSummary(int amount, string unitname, string unitsize)
+        {
+            return webStoreRepository.GetSummarizedItem(amount, unitname, unitsize);
+        }
+
+        public List<Dress> ListByPrice(int price, string type)
+        {
+            List<Dress> forJson = new List<Dress>();
+
+            if (type.Equals("higher"))
+            {
+                forJson = webStoreRepository.GetAllClothes().Where(j => j.UnitPrice > price).ToList();
+            }
+
+            if (type.Equals("lower"))
+            {
+                forJson = webStoreRepository.GetAllClothes().Where(j => j.UnitPrice < price).ToList();
+            }
+
+            if (type.Equals("equal"))
+            {
+                forJson = webStoreRepository.GetAllClothes().Where(j => j.UnitPrice == price).ToList();
+            }
+
+            return forJson;
+
         }
     }
 }

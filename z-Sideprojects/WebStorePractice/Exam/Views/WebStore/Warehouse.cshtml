@@ -9,21 +9,21 @@
 <body>
     <h1 align="center">Green Fox Fashion Web Store</h1>
     <form action="/warehouse/summary" method="post">
-        <select name="itemName">
+        <select name="unitname">
             <option value="" selected disabled hidden>Select item name</option>
             @foreach (var name in @Model.ClothesNames)
             {
                 <option value="@name">@name</option>
             }   
         </select>
-        <select name="size">
+        <select name="unitsize">
             <option value="" selected disabled hidden>Select size</option>
             @foreach (var size in @Model.ClothesSizes)
             {
                 <option value="@size">@size</option>
             }
         </select>
-        <input type="text" name="amount" placeholder="Amount 1-99" required minlength="1" maxlength="2" pattern="[1-99]"/>
+        <input type="text" name="amount" placeholder="Amount 1-99" required minlength="1" maxlength="2"/>
         <button type="submit">GET TOTAL</button>
     </form>
     <br />
@@ -42,7 +42,7 @@
                 <td>@unit.Manufacturer</td>
                 <td>@unit.Category</td>
                 <td>@unit.Size</td>
-                <td>@unit.UnitPrice</td>
+                <td>@unit.UnitPrice.ToString("F")</td>
             </tr>
         }        
     </table>
