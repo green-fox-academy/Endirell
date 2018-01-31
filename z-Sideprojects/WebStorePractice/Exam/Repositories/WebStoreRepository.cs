@@ -16,9 +16,19 @@ namespace WebStore.Repositories
             this.webStoreContext = webStoreContext;
         }
 
-        public List<Dress> GetClothes()
+        public List<Dress> GetAllClothes()
         {
             return webStoreContext.Dresses.ToList();
+        }
+
+        public List<string> GetNameOfClothes()
+        {
+            return webStoreContext.Dresses.Select(c => c.ItemName).OrderBy(c => c).Distinct().ToList();
+        }
+
+        public List<string> GetSizeOfClothes()
+        {
+            return webStoreContext.Dresses.Select(c => c.Size).OrderBy(c => c).Distinct().ToList();
         }
     }
 }

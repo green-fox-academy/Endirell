@@ -1,8 +1,13 @@
-﻿namespace WebStore.ViewModels
+﻿using System.Collections.Generic;
+using WebStore.Models;
+using WebStore.Repositories;
+
+namespace WebStore.ViewModels
 {
     public class WebStoreViewModel
     {
-        //public string Result { get; set; }
-        //public List<Moddell> Moddells { get; set; }
+        public List<string> ClothesNames { get; set; }
+        public List<string> ClothesSizes { get; set; }
+        public List<Dress> Clothes { get; set; }
     }
 }
