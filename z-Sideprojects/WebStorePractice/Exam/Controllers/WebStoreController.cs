@@ -24,7 +24,7 @@ namespace WebStore.Controllers
         public IActionResult Warehouse()
         {
 
-            return View();
+            return View(webStoreService.GetClothesList());
         }
 
         [HttpPost("warehouse/summary")]

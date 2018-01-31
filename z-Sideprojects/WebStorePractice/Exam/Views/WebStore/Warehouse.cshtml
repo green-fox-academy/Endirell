@@ -1,4 +1,4 @@
-﻿@*@model System.Collections.Generic.List<LicensePlatePractice.Models.Car>*@
+﻿@model System.Collections.Generic.List<WebStore.Models.Dress>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -10,8 +10,11 @@
     <form action="/warehouse/summary" method="post">
         <select name="itemName">
             <option value="" selected disabled hidden>Select item name</option>
-            <option value="firestItemName">itemName</option>
-            <option value="secondItemName">itemName2</option>
+            @foreach (var unit in @Model)
+            {
+                <option>@unit.ItemName</option>
+            }              
+            @*<option value="secondItemName">itemName2</option>*@
         </select>
         <select name="size">
             <option value="" selected disabled hidden>Select size</option>
@@ -30,20 +33,16 @@
             <th>Size</th>
             <th>Unit price</th>
         </tr>
-        <tr>
-            <td>MyFavourite</td>
-            <td>Me</td>
-            <td>Jumper</td>
-            <td>L</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Pinky</td>
-            <td>NotMe</td>
-            <td>Tie</td>
-            <td>M</td>
-            <td>45</td>
-        </tr>
+        @foreach (var unit in @Model)
+        {
+            <tr>
+                <td>@unit.ItemName</td>
+                <td>@unit.Manufacturer</td>
+                <td>@unit.Category</td>
+                <td>@unit.Size</td>
+                <td>@unit.UnitPrice</td>
+            </tr>
+        }        
     </table>
 
     @*<form action="/search" method="get">
