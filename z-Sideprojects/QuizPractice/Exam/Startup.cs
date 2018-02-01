@@ -17,9 +17,10 @@ namespace Quiz
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<QuizContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SuchExam;Integrated Security=True;Connect Timeout=30;"));
+            services.AddDbContext<QuizContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuizDB;Integrated Security=True;Connect Timeout=30;"));
             services.AddScoped<QuizContext>();
             services.AddScoped<QuizRepository>();
+            //services.AddSingleton<BankAccountsViewModel>();
             //add-migration InitialCreate
             //update-database
         }

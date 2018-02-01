@@ -15,5 +15,11 @@ namespace Quiz.Repositories
         {
             this.QuizContext = QuizContext;
         }
+
+        //public void AddQuestion(Question question)
+        //{
+        //    quizContext.Questions.Add(question);
+        //    quizContext.SaveChanges();
+        //}
     }
 }

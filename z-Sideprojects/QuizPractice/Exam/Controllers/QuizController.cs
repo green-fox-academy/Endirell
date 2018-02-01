@@ -14,10 +14,25 @@ namespace Quiz.Controllers
         }
         
         [HttpGet("")]
+        [HttpGet("home")]
         public IActionResult Index()
         {
-
+            //QuizRepository.GetViewModel()
             return View();
         }
+                
+        [HttpGet("home/{score}")]
+        public IActionResult Index(int score)
+        {
+            
+            return View();
+        }
+
+        //[HttpPost("question")]
+        //public IActionResult PostQuestion(Question question)
+        //{
+        //    quizService.AddQuestion(question);
+        //    return Redirect("/home");
+        //}
     }
 }
