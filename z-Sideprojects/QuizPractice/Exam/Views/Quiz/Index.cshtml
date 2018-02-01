@@ -10,59 +10,24 @@
     <h1 align="center">The Quiz Game</h1>
     <br />
     <br />
-    @if (@Model.score > 0)
+    @if (@Model.Score > 0)
     {
-        <h3>Your score is: @Model.score points</h3>
+        <h2>Your score is: @Model.Score points</h2>
         <br />
         <br />
     }
 
-    <a href="/search?police=1">Police cars only</a>
+    <h3>
+        <a href="/question">Add a Question</a>
+    </h3>
 
-    @if "There is question in DB"
+    @if (Model.Questions.Any())
     {
-        <h3>Your score is: @Model.score points</h3>
-        <br />
-        <br />
-    }
-    <form action="/warehouse/summary" method="post">
-        <select name="unitname">
-            <option value="" selected disabled hidden>Select item name</option>
-            @foreach (var name in @Model.ClothesNames)
-            {
-                <option value="@name">@name</option>
-            }
 
-        </select>
-        <select name="unitsize">
-            <option value="" selected disabled hidden>Select size</option>
-            @foreach (var size in @Model.ClothesSizes)
-            {
-                <option value="@size">@size</option>
-            }
-        </select>
-        <input type="text" name="amount" placeholder="Amount 1-99" required minlength="1" maxlength="2" />
-        <button type="submit">GET TOTAL</button>
-    </form>
-    <br />
-    <table border="1">
-        <tr>
-            <th>Item Name</th>
-            <th>Manufacturer</th>
-            <th>Category</th>
-            <th>Size</th>
-            <th>Unit price</th>
-        </tr>
-        @foreach (var unit in @Model.Clothes)
-        {
-            <tr>
-                <td>@unit.ItemName</td>
-                <td>@unit.Manufacturer</td>
-                <td>@unit.Category</td>
-                <td>@unit.Size</td>
-                <td>@unit.UnitPrice.ToString("F")</td>
-            </tr>
-        }
-    </table>
+        <h3>
+            <a href="/quiz">Play</a>
+        </h3>
+    }
+
 </body>
 </html>

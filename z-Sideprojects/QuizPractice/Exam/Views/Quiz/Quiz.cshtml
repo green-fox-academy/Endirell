@@ -1,1 +1,61 @@
-﻿
+﻿@model Quiz.Models.Question
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Quiz</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1 align="center">Answer new question!</h1>
+    <br />
+    <br />
+    <h2>
+        @Model.AskQuestion?
+    </h2>
+    <br />
+
+    @if (Model.TrueAnswer.Equals(Model.AnswerOne))
+    {
+        <h3><a href="/quiz">@Model.AnswerOne</a></h3><br />
+    }
+
+    @if (Model.TrueAnswer.Equals(Model.AnswerTwo))
+    {
+        <h3><a href="/quiz">@Model.AnswerTwo</a></h3><br />
+    }
+
+    @if (Model.TrueAnswer.Equals(Model.AnswerThree))
+    {
+        <h3><a href="/quiz">@Model.AnswerThree</a></h3><br />
+    }
+
+    @if (Model.TrueAnswer.Equals(Model.AnswerFour))
+    {
+        <h3><a href="/quiz">@Model.AnswerFour</a></h3><br />
+    }
+
+    @if (!Model.TrueAnswer.Equals(Model.AnswerOne))
+    {
+        <h3><a href="/home">@Model.AnswerOne</a></h3><br />
+    }
+
+    @if (!Model.TrueAnswer.Equals(Model.AnswerTwo))
+    {
+        <h3><a href="/home">@Model.AnswerTwo</a></h3><br />
+    }
+
+    @if (!Model.TrueAnswer.Equals(Model.AnswerThree))
+    {
+        <h3><a href="/home">@Model.AnswerThree</a></h3><br />
+    }
+
+    @if (!Model.TrueAnswer.Equals(Model.AnswerFour))
+    {
+        <h3><a href="/home">@Model.AnswerFour</a></h3><br />
+    }
+    
+    <br />
+    <h1>Your Score</h1>
+</body>
+</html>

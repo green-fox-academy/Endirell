@@ -1,38 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Quiz.Repositories;
+using Quiz.Models;
 
 namespace Quiz.Controllers
 {
     [Route("")]
     public class QuizController : Controller
     {
-        private QuizRepository QuizRepository;
+        private QuizRepository quizRepository;
 
-        public QuizController(QuizRepository QuizRepository)
+        public QuizController(QuizRepository quizRepository)
         {
-            this.QuizRepository = QuizRepository;
+            this.quizRepository = quizRepository;
         }
         
         [HttpGet("")]
         [HttpGet("home")]
         public IActionResult Index()
         {
-            //QuizRepository.GetViewModel()
-            return View();
+            return View(quizRepository.GetViewModel());
         }
                 
         [HttpGet("home/{score}")]
-        public IActionResult Index(int score)
+        public IActionResult Score(int score)
         {
-            
+            return View(score);
+        }
+
+        [HttpGet("question")]
+        public IActionResult Question()
+        {
             return View();
         }
 
-        //[HttpPost("question")]
-        //public IActionResult PostQuestion(Question question)
-        //{
-        //    quizService.AddQuestion(question);
-        //    return Redirect("/home");
-        //}
+        [HttpPost("question")]
+        public IActionResult AddQuestion(Question question)
+        {
+            quizRepository.AddQuestion(question);            
+            return Redirect("/home");
+        }
+
+        [HttpGet("quiz")]
+        public IActionResult Quiz()
+        {
+            return View(quizRepository.GetQuestion());
+        }
+
     }
 }

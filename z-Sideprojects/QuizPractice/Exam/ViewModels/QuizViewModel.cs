@@ -1,12 +1,12 @@
 ﻿using Quiz.Models;
+using System.Collections.Generic;
 
 namespace Quiz.ViewModels
 {
     public class QuizViewModel
     {
+        public int Score { get; set; }
+        public List<Question> Questions { get; set; }       
 
-
-        //public string Result { get; set; }
-        //public List<Moddell> Moddells { get; set; }
     }
 }
